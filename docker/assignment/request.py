@@ -11,7 +11,7 @@ data = {
 }
 
 #request_response = requests.post(url=notification_service_url, data=data)
-response = requests.get(notification_service_url,data)
+response = requests.post(notification_service_url,json=data)
 
 #print(request_response.text)
 print(response.text)

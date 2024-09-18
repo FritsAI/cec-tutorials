@@ -15,6 +15,7 @@ response = requests.get(notification_service_url,data)
 
 #print(request_response.text)
 print(response.text)
-#open with(,'a+')
-
+with open('log.txt', 'a') as file:
+    # Write a string to the file
+    file.write(response.text + '\n')
 

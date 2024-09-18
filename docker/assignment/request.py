@@ -1,6 +1,6 @@
 import requests
 
-notification_service_url = "http://localhost:3000/api/notify"
+notification_service_url = "http://notifications-service:3000/api/notify"
 
 data = {
     "notification_type": "OutOfRange", 

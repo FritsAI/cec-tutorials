@@ -6,7 +6,7 @@ COPY request.py .
 
 RUN mkdir -p assignment
 
-VOLUME ["/usr/src/requests"]
+VOLUME ["/usr/src/app/data"]
 
 RUN pip install requests
 

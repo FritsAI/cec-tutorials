@@ -15,7 +15,7 @@ response = requests.post(notification_service_url,json=data)
 
 #print(request_response.text)
 print(response.text)
-with open('/usr/src/app/assignment/log.txt', 'a+') as file:
+with open('/usr/src/app/data/log.txt', 'a+') as file:
     # Write a string to the file
     file.write(response.text + '\n')
 

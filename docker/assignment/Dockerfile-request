@@ -4,6 +4,8 @@ WORKDIR /usr/src/app
 
 COPY request.py .
 
+RUN mkdir -p assignment
+
 VOLUME ["/usr/src/requests"]
 
 RUN pip install requests

@@ -1,0 +1,11 @@
+FROM python:3.7
+
+WORKDIR /usr/src/app
+
+COPY request.py .
+
+VOLUME ["/usr/src/requests"]
+
+RUN pip install requests
+
+ENTRYPOINT ["python3", "-u", "request.py"]

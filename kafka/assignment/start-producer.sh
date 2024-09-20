@@ -59,6 +59,7 @@ fi
 for i in range(3):
     docker run \
         --rm \
+        -d \
         -v "$(realpath $auth)":/app/experiment-producer/auth \
         dclandau/cec-experiment-producer \
         --topic "$topic" --brokers "$brokers" "$@"

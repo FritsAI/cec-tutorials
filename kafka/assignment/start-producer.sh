@@ -56,10 +56,11 @@ if ! [[ -d "$auth" ]]; then
     exit 1
 fi
 
-for i in range(3):
+for i in {1..3}; do
     docker run \
         --rm \
         -d \
         -v "$(realpath $auth)":/app/experiment-producer/auth \
         dclandau/cec-experiment-producer \
         --topic "$topic" --brokers "$brokers" "$@"
+done

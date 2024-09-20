@@ -4,6 +4,7 @@
 script=$(basename "$0")
 
 USAGE="
+
 Usage: $script <auth> <topic> <brokers> [OPTIONS] 
 
 Positional parameters:
@@ -55,8 +56,9 @@ if ! [[ -d "$auth" ]]; then
     exit 1
 fi
 
-docker run \
-    --rm \
-    -v "$(realpath $auth)":/app/experiment-producer/auth \
-    dclandau/cec-experiment-producer \
-    --topic "$topic" --brokers "$brokers" "$@"
+for i in range(3):
+    docker run \
+        --rm \
+        -v "$(realpath $auth)":/app/experiment-producer/auth \
+        dclandau/cec-experiment-producer \
+        --topic "$topic" --brokers "$brokers" "$@"

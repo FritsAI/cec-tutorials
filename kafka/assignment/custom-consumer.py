@@ -49,13 +49,11 @@ def consume(topic: str):
             # Deserialize Avro message
             bytes_reader = BytesIO(msg.value())
             avro_reader = fastavro.reader(bytes_reader)
-
-            # Get the schema name safely
-            schema = avro_reader.writer_schema
-            record_name = schema.get('name') if schema else 'UnknownRecord'
-
             for avro_data in avro_reader:
-                print(f"Record Name: {record_name}")
+                # Get the schema from the Avro reader
+                record_name = avro_reader.writer_schema.get('name', 'UnknownRecord')
+
+                print(record_name)
                 print(avro_data)
         
         except Exception as e:

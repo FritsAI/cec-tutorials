@@ -58,6 +58,7 @@ fi
 
 for i in {1..3}; do
     docker run \
+        -- rm \
         -d \
         -v "$(realpath $auth)":/app/experiment-producer/auth \
         dclandau/cec-experiment-producer \

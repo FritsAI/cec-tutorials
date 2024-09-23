@@ -46,17 +46,14 @@ def consume(topic: str):
             print(num_events)
 
         try:
-            # Extract record_name from the Kafka message header
             headers = dict(msg.headers() or [])
             record_name = headers.get('record_name', b'UnknownRecord').decode('utf-8')
 
-            # Deserialize Avro message
             bytes_reader = BytesIO(msg.value())
             avro_reader = fastavro.reader(bytes_reader)
 
             for avro_data in avro_reader:
-                # Print the record_name from the header and the Avro data
-                print(f"Record Name from Header: {record_name}")
+                print(record_name)
                 print(avro_data)
         
         except Exception as e:
